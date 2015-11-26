@@ -1,6 +1,3 @@
-#open "string";;
-#open "list";;
-
 let rev my_list =
     let rec aux acc = function
       | [] -> acc
@@ -24,4 +21,4 @@ let read_file filename =
 	  close_in chan;
 	  rev !lines ;;
   
-List.Length (read_file "B-small-practice.in") ;;
+print_string(string_of_int (length (read_file "B-small-practice.in"))) ;;
