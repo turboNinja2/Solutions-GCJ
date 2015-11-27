@@ -53,14 +53,18 @@ let print_list list =
 	print_string (String.concat "\n" list) in
 	  
 let dot a b = 
-	let rec aux list1 list2 = function
+	let rec aux = function
 		| [],[] -> 0
-		| h1::t1,h2::t2 -> h1 * h2 + aux t1 t2 in
-	aux a b in	
+		| h1::t1, h2::t2 -> (h1 * h2) + aux (t1, t2) in
+	aux (a, b) in	
 
-let solve a b = dot (merge_sort a) (reverse (merge_sort b) )  in
+let solve_one_pair a b = dot (merge_sort a) (reverse (merge_sort b) )  in
 
-print_list( read_file "A-small-practice.in") ;;
+let solve_problem list = print_string (string_of_int(length list)) in
+
+solve_problem( read_file "A-small-practice.in") ;;
+
+
 
 
 	
